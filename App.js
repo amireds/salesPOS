@@ -15,6 +15,7 @@ import {
   Poppins_900Black,
 } from "@expo-google-fonts/poppins";
 import Navigation from "./navigation";
+import { StatusBar } from "expo-status-bar";
 
 if (__DEV__) {
   connectToDevTools({
@@ -76,6 +77,7 @@ export default function App() {
   return (
     <SafeAreaView onLayout={onLayoutRootView} style={styles.container}>
       <Navigation />
+      <StatusBar style="auto" />
     </SafeAreaView>
   );
 }

@@ -8,7 +8,13 @@ const Stack = createStackNavigator();
 function AuthStack() {
   return (
     <Stack.Navigator initialRouteName="onboarding">
-      <Stack.Screen name="onboarding" component={Onboarding} />
+      <Stack.Screen
+        name="onboarding"
+        component={Onboarding}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen name="baseAuth" component={BaseAuth} />
     </Stack.Navigator>
   );
