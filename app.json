@@ -23,11 +23,18 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#2DB0F6"
+      },
+      "package": "com.amireds.salesPOS"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "323475fe-2ffb-42b8-89d5-efc6a6a7c7c3"
+      }
+    },
+    "plugins": ["expo-community-flipper"]
   }
 }
