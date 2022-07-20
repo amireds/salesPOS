@@ -6,21 +6,21 @@ let IS_DEV = {
 };
 
 if (process.env.APP_ENV === "production") {
-  IS_DEV.name = "Flickwheel";
+  IS_DEV.name = "SalesPOS";
   IS_DEV.bundleIdentifier = "com.prerit.salespos";
   IS_DEV.package = "com.mypackage.salespos";
   IS_DEV.icon = "./assets/icon.png";
   //IS_DEV.googleServicesFile = "./google-services.json";
   //IS_DEV.oneSignal = "production";
 } else if (process.env.APP_ENV === "preview") {
-  IS_DEV.name = "Flickwheel Beta";
+  IS_DEV.name = "SalesPOS Beta";
   IS_DEV.bundleIdentifier = "com.salespos.preview";
   IS_DEV.package = "com.mypackage.prevsalespos";
   IS_DEV.icon = "./assets/icon_preview.png";
   //IS_DEV.googleServicesFile = "./google-services-preview.json";
   //IS_DEV.oneSignal = "production";
 } else {
-  IS_DEV.name = "Flickwheel Dev";
+  IS_DEV.name = "SalesPOS Dev";
   IS_DEV.bundleIdentifier = "com.salespos.development";
   IS_DEV.package = "com.mypackage.devsalespos";
   IS_DEV.icon = "./assets/icon_dev.png";
