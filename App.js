@@ -1,10 +1,20 @@
 import { useCallback, useEffect, useState } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { LogBox, SafeAreaView, StyleSheet } from "react-native";
 import { connectToDevTools } from "react-devtools-core";
-import Entypo from "@expo/vector-icons/Entypo";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
+import {
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_200ExtraLight,
+  Poppins_500Medium,
+  Poppins_100Thin,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+  Poppins_800ExtraBold,
+  Poppins_900Black,
+} from "@expo-google-fonts/poppins";
+import Navigation from "./navigation";
 
 if (__DEV__) {
   connectToDevTools({
@@ -15,18 +25,28 @@ if (__DEV__) {
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
+LogBox.ignoreLogs(["SplashScreen.show"]);
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-
   useEffect(() => {
     async function prepare() {
       try {
         // Pre-load fonts, make any API calls you need to do here
-        await Font.loadAsync(Entypo.font);
+        await Font.loadAsync({
+          thin: Poppins_100Thin,
+          extraLight: Poppins_200ExtraLight,
+          light: Poppins_300Light,
+          regular: Poppins_400Regular,
+          medium: Poppins_500Medium,
+          semiBold: Poppins_600SemiBold,
+          bold: Poppins_700Bold,
+          extraBold: Poppins_800ExtraBold,
+          black: Poppins_900Black,
+        });
         // Artificially delay for two seconds to simulate a slow loading
         // experience. Please remove this if you copy and paste the code!
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        //await new Promise((resolve) => setTimeout(resolve, 2000));
       } catch (e) {
         console.warn(e);
       } finally {
@@ -54,19 +74,14 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <Entypo name="rocket" size={32} color="blue" />
-    </View>
+    <SafeAreaView onLayout={onLayoutRootView} style={styles.container}>
+      <Navigation />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
