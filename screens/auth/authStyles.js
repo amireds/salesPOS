@@ -3,12 +3,6 @@ import { StyleSheet } from "react-native";
 import colors from "../../utils/colors";
 
 const AuthStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff",
-  },
   onboarding: {
     container: {
       flexGrow: 1,
@@ -66,7 +60,32 @@ const AuthStyles = StyleSheet.create({
   },
   baseAuth: {
     title: {
-      fontFamily: "medium",
+      fontFamily: "regular",
+      fontSize: 24,
+      lineHeight: 36,
+      color: colors.title,
+      marginBottom: 16,
+    },
+    container: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: colors.white,
+    },
+    innerContainer: {
+      width: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+      paddingHorizontal: 24,
+    },
+    logoContainer: {
+      marginBottom: 80,
+      width: 224,
+      height: 45,
+    },
+    logo: {
+      width: "100%",
+      height: "100%",
     },
   },
 });

@@ -15,7 +15,13 @@ function AuthStack() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="baseAuth" component={BaseAuth} />
+      <Stack.Screen
+        name="baseAuth"
+        component={BaseAuth}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }
