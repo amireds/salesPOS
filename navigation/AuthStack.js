@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Onboarding from "../screens/auth/Onboarding";
+import Onboard from "../screens/auth/Onboarding";
 import BaseAuth from "../screens/auth/BaseAuth";
 
 const Stack = createStackNavigator();
@@ -10,7 +10,7 @@ function AuthStack() {
     <Stack.Navigator initialRouteName="onboarding">
       <Stack.Screen
         name="onboarding"
-        component={Onboarding}
+        component={Onboard}
         options={{
           headerShown: false,
         }}

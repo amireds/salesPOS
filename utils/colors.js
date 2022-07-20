@@ -4,6 +4,8 @@ export default {
   accent: "#ED1A3B",
   title: "#212121",
   text: "#8F8F8F",
+  textTwo: "#808191",
   btnBG: "#F3F3F3",
   white: "#FFFFFF",
+  deep: "#1B1D21",
 };

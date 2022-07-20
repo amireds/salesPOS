@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { LogBox, SafeAreaView, StyleSheet } from "react-native";
+import { LogBox, StyleSheet, View } from "react-native";
 import { connectToDevTools } from "react-devtools-core";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
@@ -75,10 +75,10 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView onLayout={onLayoutRootView} style={styles.container}>
+    <View onLayout={onLayoutRootView} style={styles.container}>
       <Navigation />
       <StatusBar style="auto" />
-    </SafeAreaView>
+    </View>
   );
 }
 
