@@ -3,6 +3,17 @@ import { StyleSheet } from "react-native";
 import colors from "../../utils/colors";
 
 const AuthStyles = StyleSheet.create({
+  baseContainer: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
+  innerContainer: {
+    width: "100%",
+    paddingHorizontal: 24,
+    //backgroundColor: colors.primary,
+    flex: 1,
+    paddingTop: 42,
+  },
   onboarding: {
     container: {
       flexGrow: 1,
@@ -79,7 +90,7 @@ const AuthStyles = StyleSheet.create({
       paddingHorizontal: 24,
     },
     logoContainer: {
-      marginBottom: 80,
+      marginBottom: 100,
       width: 224,
       height: 45,
     },

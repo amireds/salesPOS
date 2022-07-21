@@ -9,6 +9,7 @@ function AppButton({ title = "Log in", btnHandler, color, style }) {
       style={[
         GlobalStyles.btn.btnContainer,
         { backgroundColor: color ? color : colors.primary },
+        style,
       ]}
       onPress={btnHandler}
     >

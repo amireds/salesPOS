@@ -8,4 +8,5 @@ export default {
   btnBG: "#F3F3F3",
   white: "#FFFFFF",
   deep: "#1B1D21",
+  border: "#D7D9DE",
 };
