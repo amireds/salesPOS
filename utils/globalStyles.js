@@ -56,6 +56,19 @@ const GlobalStyles = StyleSheet.create({
       marginLeft: 8,
       color: colors.accent,
     },
+    forgotPassword: {
+      container: {
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "flex-end",
+      },
+      text: {
+        fontSize: 14,
+        lineHeight: 21,
+        fontFamily: "regular",
+        color: colors.textTwo,
+      },
+    },
   },
 });
 

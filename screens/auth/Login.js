@@ -7,6 +7,9 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../utils/formSchema";
 import AppButton from "../../component/AppButton";
 import colors from "../../utils/colors";
+import Password from "../../component/forms/Password";
+import globalStyles from "../../utils/globalStyles";
+import { Link } from "@react-navigation/native";
 
 function Login() {
   function handleLogin() {}
@@ -35,7 +38,7 @@ function Login() {
             error={errors.email}
             touched={touched.email}
           />
-          <Input
+          <Password
             value={values.password}
             type="text"
             label="Password"
@@ -44,6 +47,14 @@ function Login() {
             error={errors.password}
             touched={touched.password}
           />
+          <View style={globalStyles.form.forgotPassword.container}>
+            <Link
+              style={globalStyles.form.forgotPassword.text}
+              to={{ screen: "register" }}
+            >
+              Forgot Password
+            </Link>
+          </View>
           <AppButton
             color={colors.primary}
             title="Log In"

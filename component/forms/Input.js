@@ -52,6 +52,7 @@ function Input({
           }
           autoCapitalize={type === "email" ? "none" : "sentences"}
           autoCorrect={type !== "email"}
+          autoComplete={type !== "email" ? "email" : "off"}
         />
       </View>
       {error && touched ? (
