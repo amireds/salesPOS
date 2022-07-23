@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { LogBox, StyleSheet, View } from "react-native";
 import { connectToDevTools } from "react-devtools-core";
+import {
+  QueryClient,
+  QueryClientProvider,
+  focusManager,
+} from "@tanstack/react-query";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import {
@@ -16,11 +21,30 @@ import {
 } from "@expo-google-fonts/poppins";
 import Navigation from "./navigation";
 import { StatusBar } from "expo-status-bar";
+import { WEB } from "./utils/lib";
+import useOnlineManager from "./hooks/useOnlineManager";
+import useAppState from "./hooks/useAppState";
 
 if (__DEV__) {
   connectToDevTools({
     host: "localhost",
     port: 8097,
+  });
+}
+
+function onAppStateChange(status) {
+  if (WEB) {
+    focusManager.setFocused(status === "active");
+  }
+}
+
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { retry: 2 } },
+});
+
+if (__DEV__) {
+  import("react-query-native-devtools").then(({ addPlugin }) => {
+    addPlugin({ queryClient });
   });
 }
 
@@ -30,6 +54,9 @@ LogBox.ignoreLogs(["SplashScreen.show"]);
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
+
+  useOnlineManager();
+  useAppState(onAppStateChange);
   useEffect(() => {
     async function prepare() {
       try {
@@ -75,10 +102,12 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView} style={styles.container}>
-      <Navigation />
-      <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <View onLayout={onLayoutRootView} style={styles.container}>
+        <Navigation />
+        <StatusBar style="auto" />
+      </View>
+    </QueryClientProvider>
   );
 }
 
